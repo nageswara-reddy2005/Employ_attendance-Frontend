@@ -307,3 +307,8 @@
     min-width: auto;
   }
 }
+.attendance-filter-input {
+  background-color: lightblue; /* Change to any color you like */
+  color: black; /* Text color */
+  
+}
