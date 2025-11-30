@@ -24,7 +24,18 @@ const ManagerDashboard = () => {
   const fetchAllEmployees = async () => {
     try {
       const response = await axiosInstance.get('/dashboard/manager/users/all');
-      setAllEmployees(response.data.users || response.data || []);
+      console.log('Employees response:', response.data);
+      
+      let employees = [];
+      if (response.data.users && Array.isArray(response.data.users)) {
+        employees = response.data.users;
+      } else if (Array.isArray(response.data)) {
+        employees = response.data;
+      } else if (response.data.data && Array.isArray(response.data.data)) {
+        employees = response.data.data;
+      }
+      
+      setAllEmployees(employees);
     } catch (err) {
       console.error('Failed to fetch employees:', err);
       setAllEmployees([]);
