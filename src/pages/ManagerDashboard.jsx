@@ -122,9 +122,44 @@ const ManagerDashboard = () => {
             </div>
           </div>
 
+          {/* Employee Details Section */}
+          <div className="late-arrivals-card">
+            <div className="late-arrivals-title">👥 Employee Details</div>
+            <div className="employee-details-grid">
+              <div className="employee-detail-item">
+                <div className="detail-label">Total Employees</div>
+                <div className="detail-value">{dashboard.totalEmployees}</div>
+              </div>
+              <div className="employee-detail-item">
+                <div className="detail-label">Present Today</div>
+                <div className="detail-value present">{dashboard.todayStats.present}</div>
+              </div>
+              <div className="employee-detail-item">
+                <div className="detail-label">Absent Today</div>
+                <div className="detail-value absent">{dashboard.todayStats.absent}</div>
+              </div>
+              <div className="employee-detail-item">
+                <div className="detail-label">Late Arrivals</div>
+                <div className="detail-value late">{dashboard.lateArrivals.length}</div>
+              </div>
+              <div className="employee-detail-item">
+                <div className="detail-label">Half Day</div>
+                <div className="detail-value halfday">{dashboard.todayStats.halfDay || 0}</div>
+              </div>
+              <div className="employee-detail-item">
+                <div className="detail-label">Attendance Rate</div>
+                <div className="detail-value">
+                  {dashboard.totalEmployees > 0 
+                    ? Math.round((dashboard.todayStats.present / dashboard.totalEmployees) * 100) 
+                    : 0}%
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Late Arrivals */}
           <div className="late-arrivals-card">
-            <div className="late-arrivals-title">Late Arrivals Today</div>
+            <div className="late-arrivals-title">⏰ Late Arrivals Today</div>
             {dashboard.lateArrivals.length === 0 ? (
               <div className="no-late-message">✓ No late arrivals today</div>
             ) : (
