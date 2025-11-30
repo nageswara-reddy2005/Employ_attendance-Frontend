@@ -145,43 +145,6 @@ const ManagerDashboard = () => {
             </div>
           </div>
 
-          {/* Employee Details Section */}
-          <div className="late-arrivals-card">
-            <div className="late-arrivals-title">👥 All Employees - Today's Status</div>
-            {allEmployees && allEmployees.length > 0 ? (
-              <div className="employee-table-container">
-                <table className="employee-details-table">
-                  <thead>
-                    <tr>
-                      <th>Employee ID</th>
-                      <th>Name</th>
-                      <th>Department</th>
-                      <th>Today's Status</th>
-                      <th>Check In Time</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {allEmployees.map((emp) => (
-                      <tr key={emp._id} className={`status-${emp.todayStatus?.status || 'absent'}`}>
-                        <td><strong>{emp.employeeId}</strong></td>
-                        <td>{emp.name}</td>
-                        <td>{emp.department}</td>
-                        <td>
-                          <span className={`status-badge status-badge-${emp.todayStatus?.status || 'absent'}`}>
-                            {emp.todayStatus?.status ? emp.todayStatus.status.charAt(0).toUpperCase() + emp.todayStatus.status.slice(1) : 'Absent'}
-                          </span>
-                        </td>
-                        <td>{emp.todayStatus?.checkInTime ? new Date(emp.todayStatus.checkInTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '-'}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div style={{ textAlign: 'center', color: '#7f8c8d', padding: '20px' }}>No employee data available</div>
-            )}
-          </div>
-
           {/* Late Arrivals */}
           <div className="late-arrivals-card">
             <div className="late-arrivals-title">⏰ Late Arrivals Today</div>

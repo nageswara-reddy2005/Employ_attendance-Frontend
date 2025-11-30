@@ -275,14 +275,22 @@
 }
 
 .premium-manager-pages-filter-input option {
-  background: #1e3c72;
-  color: white;
-  padding: 8px;
+  background: #2c3e50;
+  color: #ffffff;
+  padding: 10px 8px;
+  font-weight: 500;
 }
 
 .premium-manager-pages-filter-input option:checked {
   background: linear-gradient(#667eea, #667eea);
-  color: white;
+  background-color: #667eea;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.premium-manager-pages-filter-input option:hover {
+  background: #34495e;
+  color: #ffffff;
 }
 
 .premium-manager-pages-filter-btn {
