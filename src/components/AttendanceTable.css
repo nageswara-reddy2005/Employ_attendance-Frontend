@@ -1,0 +1,144 @@
+.attendance-table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-loading,
+.table-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table thead {
+  background-color: #34495e;
+  color: white;
+}
+
+.attendance-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.attendance-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ecf0f1;
+  font-size: 14px;
+}
+
+.attendance-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.attendance-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.attendance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status row styling */
+.attendance-table tbody tr.status-present {
+  border-left: 4px solid #27ae60;
+}
+
+.attendance-table tbody tr.status-absent {
+  border-left: 4px solid #e74c3c;
+}
+
+.attendance-table tbody tr.status-late {
+  border-left: 4px solid #f39c12;
+}
+
+.attendance-table tbody tr.status-half-day {
+  border-left: 4px solid #e67e22;
+}
+
+/* Column styling */
+.attendance-table .employee-id {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.attendance-table .date {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.attendance-table .status {
+  text-align: center;
+}
+
+.attendance-table .check-in,
+.attendance-table .check-out {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  color: #34495e;
+}
+
+.attendance-table .hours {
+  text-align: center;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-present {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge-absent {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.badge-late {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.badge-half-day {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+@media (max-width: 768px) {
+  .attendance-table {
+    font-size: 12px;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.5rem;
+  }
+
+  .attendance-table th {
+    font-size: 12px;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 0.2rem 0.5rem;
+  }
+}
