@@ -161,12 +161,12 @@ const AllAttendance = () => {
               </tr>
             </thead>
             <tbody>
-              {attendance.length > 0 ? (
-                attendance.map((record) => (
+              {attendance && attendance.length > 0 ? (
+                attendance.filter(record => record && record.userId).map((record) => (
                   <tr key={record._id}>
-                    <td><strong>{record.userId?.employeeId || 'N/A'}</strong></td>
-                    <td>{record.userId?.name || 'N/A'}</td>
-                    <td>{record.userId?.department || 'N/A'}</td>
+                    <td><strong>{record.userId.employeeId}</strong></td>
+                    <td>{record.userId.name}</td>
+                    <td>{record.userId.department}</td>
                     <td>{record.date}</td>
                     <td><span className={`premium-manager-pages-badge premium-manager-pages-badge-${record.status.replace('-', '-')}`}>{record.status}</span></td>
                     <td>{record.checkInTime ? new Date(record.checkInTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '-'}</td>
