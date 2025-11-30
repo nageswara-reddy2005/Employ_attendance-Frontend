@@ -5,6 +5,7 @@ import './PremiumManagerDashboard.css';
 
 const ManagerDashboard = () => {
   const [dashboard, setDashboard] = useState(null);
+  const [allEmployees, setAllEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -20,8 +21,19 @@ const ManagerDashboard = () => {
     }
   };
 
+  const fetchAllEmployees = async () => {
+    try {
+      const response = await axiosInstance.get('/dashboard/manager/users/all');
+      setAllEmployees(response.data.users || response.data || []);
+    } catch (err) {
+      console.error('Failed to fetch employees:', err);
+      setAllEmployees([]);
+    }
+  };
+
   useEffect(() => {
     fetchDashboard();
+    fetchAllEmployees();
   }, []);
 
   if (loading) return <div className="premium-manager-container"><p>Loading...</p></div>;
@@ -125,7 +137,7 @@ const ManagerDashboard = () => {
           {/* Employee Details Section */}
           <div className="late-arrivals-card">
             <div className="late-arrivals-title">👥 All Employees - Today's Status</div>
-            {dashboard.allEmployees && dashboard.allEmployees.length > 0 ? (
+            {allEmployees && allEmployees.length > 0 ? (
               <div className="employee-table-container">
                 <table className="employee-details-table">
                   <thead>
@@ -138,7 +150,7 @@ const ManagerDashboard = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {dashboard.allEmployees.map((emp) => (
+                    {allEmployees.map((emp) => (
                       <tr key={emp._id} className={`status-${emp.todayStatus?.status || 'absent'}`}>
                         <td><strong>{emp.employeeId}</strong></td>
                         <td>{emp.name}</td>
