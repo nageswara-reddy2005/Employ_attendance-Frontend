@@ -533,12 +533,17 @@
   background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: default;
 }
 
-.attendance-calendar-day:not(.attendance-calendar-header-day):not(.future):hover {
+.attendance-calendar-day.future:hover {
+  border: 4px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 8px 20px rgba(0,0,0,0.3) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
   transform: scale(1.15) translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+.attendance-calendar-day:not(.attendance-calendar-header-day):hover {
+  transform: scale(1.15) translateY(-5px);
   z-index: 10;
   cursor: pointer;
 }
