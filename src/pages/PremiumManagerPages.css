@@ -172,29 +172,41 @@
 
 /* Badge */
 .premium-manager-pages-badge {
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .premium-manager-pages-badge-present {
-  background: rgba(16, 185, 129, 0.2);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: #10b981;
+  color: #ffffff;
+  border: 2px solid #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 }
 
 .premium-manager-pages-badge-absent {
-  background: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: #ef4444;
+  color: #ffffff;
+  border: 2px solid #ef4444;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
 }
 
 .premium-manager-pages-badge-late {
-  background: rgba(245, 158, 11, 0.2);
-  color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: #f59e0b;
+  color: #ffffff;
+  border: 2px solid #f59e0b;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.premium-manager-pages-badge-halfday {
+  background: #3b82f6;
+  color: #ffffff;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
 /* Grid */
