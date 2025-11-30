@@ -31,10 +31,10 @@ const AllAttendance = () => {
   useEffect(() => {
     fetchAttendance(filters);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [page, filters]);
 
   useEffect(() => {
-    fetchAttendance(filters);
+    setTempFilters(filters);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -68,10 +68,10 @@ const Login = () => {
       <div className="login-wrapper">
         <div className="login-left-panel">
           <div className="login-left-content">
-            <h2 className="login-company-logo">COMPANY LOGO</h2>
-            <h1 className="login-welcome-title">Welcome to...</h1>
-            <p className="login-welcome-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-            <p className="login-footer-text">Lorem ipsum dolor sit amet</p>
+            <h2 className="login-company-logo">📊 ATTEND</h2>
+            <h1 className="login-welcome-title">Employee Attendance System</h1>
+            <p className="login-welcome-text">Track, manage, and optimize your team's attendance with our comprehensive attendance management platform. Real-time insights, automated reports, and seamless integration.</p>
+            <p className="login-footer-text">© 2025 Attendance Management System</p>
           </div>
         </div>
         <div className="login-card">

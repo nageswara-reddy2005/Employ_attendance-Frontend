@@ -98,10 +98,10 @@ const Register = () => {
       <div className="register-wrapper">
         <div className="register-left-panel">
           <div className="register-left-content">
-            <h2 className="register-company-logo">COMPANY LOGO</h2>
-            <h1 className="register-welcome-title">Welcome to...</h1>
-            <p className="register-welcome-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-            <p className="register-footer-text">Lorem ipsum dolor sit amet</p>
+            <h2 className="register-company-logo">📊 ATTEND</h2>
+            <h1 className="register-welcome-title">Join Our Platform</h1>
+            <p className="register-welcome-text">Create your account and start managing attendance efficiently. Get instant access to attendance tracking, reporting, and team management features.</p>
+            <p className="register-footer-text">© 2025 Attendance Management System</p>
           </div>
         </div>
         <div className="register-card">
