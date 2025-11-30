@@ -124,37 +124,39 @@ const ManagerDashboard = () => {
 
           {/* Employee Details Section */}
           <div className="late-arrivals-card">
-            <div className="late-arrivals-title">👥 Employee Details</div>
-            <div className="employee-details-grid">
-              <div className="employee-detail-item">
-                <div className="detail-label">Total Employees</div>
-                <div className="detail-value">{dashboard.totalEmployees}</div>
+            <div className="late-arrivals-title">👥 All Employees - Today's Status</div>
+            {dashboard.allEmployees && dashboard.allEmployees.length > 0 ? (
+              <div className="employee-table-container">
+                <table className="employee-details-table">
+                  <thead>
+                    <tr>
+                      <th>Employee ID</th>
+                      <th>Name</th>
+                      <th>Department</th>
+                      <th>Today's Status</th>
+                      <th>Check In Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {dashboard.allEmployees.map((emp) => (
+                      <tr key={emp._id} className={`status-${emp.todayStatus?.status || 'absent'}`}>
+                        <td><strong>{emp.employeeId}</strong></td>
+                        <td>{emp.name}</td>
+                        <td>{emp.department}</td>
+                        <td>
+                          <span className={`status-badge status-badge-${emp.todayStatus?.status || 'absent'}`}>
+                            {emp.todayStatus?.status ? emp.todayStatus.status.charAt(0).toUpperCase() + emp.todayStatus.status.slice(1) : 'Absent'}
+                          </span>
+                        </td>
+                        <td>{emp.todayStatus?.checkInTime ? new Date(emp.todayStatus.checkInTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '-'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-              <div className="employee-detail-item">
-                <div className="detail-label">Present Today</div>
-                <div className="detail-value present">{dashboard.todayStats.present}</div>
-              </div>
-              <div className="employee-detail-item">
-                <div className="detail-label">Absent Today</div>
-                <div className="detail-value absent">{dashboard.todayStats.absent}</div>
-              </div>
-              <div className="employee-detail-item">
-                <div className="detail-label">Late Arrivals</div>
-                <div className="detail-value late">{dashboard.lateArrivals.length}</div>
-              </div>
-              <div className="employee-detail-item">
-                <div className="detail-label">Half Day</div>
-                <div className="detail-value halfday">{dashboard.todayStats.halfDay || 0}</div>
-              </div>
-              <div className="employee-detail-item">
-                <div className="detail-label">Attendance Rate</div>
-                <div className="detail-value">
-                  {dashboard.totalEmployees > 0 
-                    ? Math.round((dashboard.todayStats.present / dashboard.totalEmployees) * 100) 
-                    : 0}%
-                </div>
-              </div>
-            </div>
+            ) : (
+              <div style={{ textAlign: 'center', color: '#7f8c8d', padding: '20px' }}>No employee data available</div>
+            )}
           </div>
 
           {/* Late Arrivals */}

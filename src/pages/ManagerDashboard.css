@@ -179,56 +179,85 @@
   border-bottom: 2px solid #ecf0f1;
 }
 
-.employee-details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+.employee-table-container {
+  overflow-x: auto;
 }
 
-.employee-detail-item {
-  background: linear-gradient(135deg, #f5f7fa 0%, #f0f3f7 100%);
-  padding: 1.25rem;
-  border-radius: 8px;
+.employee-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.employee-details-table thead {
+  background-color: #34495e;
+  color: white;
+}
+
+.employee-details-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.employee-details-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ecf0f1;
+  font-size: 14px;
+}
+
+.employee-details-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.employee-details-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.employee-details-table tbody tr.status-present {
+  border-left: 4px solid #27ae60;
+}
+
+.employee-details-table tbody tr.status-absent {
+  border-left: 4px solid #e74c3c;
+}
+
+.employee-details-table tbody tr.status-late {
+  border-left: 4px solid #f39c12;
+}
+
+.employee-details-table tbody tr.status-halfday {
   border-left: 4px solid #3498db;
-  text-align: center;
-  transition: all 0.3s ease;
 }
 
-.employee-detail-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
-}
-
-.detail-label {
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
   font-size: 12px;
-  color: #7f8c8d;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.5rem;
 }
 
-.detail-value {
-  font-size: 28px;
-  font-weight: 700;
-  color: #2c3e50;
+.status-badge-present {
+  background-color: #d4edda;
+  color: #155724;
 }
 
-.detail-value.present {
-  color: #27ae60;
+.status-badge-absent {
+  background-color: #f8d7da;
+  color: #721c24;
 }
 
-.detail-value.absent {
-  color: #e74c3c;
+.status-badge-late {
+  background-color: #fff3cd;
+  color: #856404;
 }
 
-.detail-value.late {
-  color: #f39c12;
-}
-
-.detail-value.halfday {
-  color: #3498db;
+.status-badge-halfday {
+  background-color: #d1ecf1;
+  color: #0c5460;
 }
 
 .late-arrivals-list {
