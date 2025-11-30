@@ -95,11 +95,20 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <div className="register-card">
-        <div className="register-header">
-          <h1>Create Account</h1>
-          <p>Join our attendance system</p>
+      <div className="register-wrapper">
+        <div className="register-left-panel">
+          <div className="register-left-content">
+            <h2 className="register-company-logo">COMPANY LOGO</h2>
+            <h1 className="register-welcome-title">Welcome to...</h1>
+            <p className="register-welcome-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <p className="register-footer-text">Lorem ipsum dolor sit amet</p>
+          </div>
         </div>
+        <div className="register-card">
+          <div className="register-header">
+            <h1>Sign Up</h1>
+            <p>Create your account to get started</p>
+          </div>
 
         {apiError && <div className="register-alert error">{apiError}</div>}
 
@@ -212,10 +221,11 @@ const Register = () => {
           </button>
         </form>
 
-        <div className="register-footer">
-          <p>
-            Already have an account? <Link to="/login">Sign in here</Link>
-          </p>
+          <div className="register-footer">
+            <p>
+              Already have an account? <Link to="/login">Sign in here</Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>

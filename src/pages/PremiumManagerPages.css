@@ -139,22 +139,23 @@
 }
 
 .premium-manager-pages-table tbody tr {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .premium-manager-pages-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.01);
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateX(5px);
 }
 
 .premium-manager-pages-table td {
   padding: 15px 12px;
-  color: white;
+  color: #ffffff;
   font-size: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
 }
 
 .premium-manager-pages-table td:first-child {

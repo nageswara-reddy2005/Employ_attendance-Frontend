@@ -65,11 +65,20 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-card">
-        <div className="login-header">
-          <h1>Welcome Back</h1>
-          <p>Sign in to your account</p>
+      <div className="login-wrapper">
+        <div className="login-left-panel">
+          <div className="login-left-content">
+            <h2 className="login-company-logo">COMPANY LOGO</h2>
+            <h1 className="login-welcome-title">Welcome to...</h1>
+            <p className="login-welcome-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <p className="login-footer-text">Lorem ipsum dolor sit amet</p>
+          </div>
         </div>
+        <div className="login-card">
+          <div className="login-header">
+            <h1>Login</h1>
+            <p>Welcome! Login to get amazing discounts and offers only for you.</p>
+          </div>
 
         {apiError && <div className="login-alert error">{apiError}</div>}
 
@@ -111,13 +120,14 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="login-footer">
-          <p>
-            Don't have an account? <Link to="/register">Create one here</Link>
-          </p>
-          <p style={{ marginTop: '0.5rem', fontSize: '12px' }}>
-            Demo: manager@example.com / Pass1234
-          </p>
+          <div className="login-footer">
+            <p>
+              Don't have an account? <Link to="/register">Create one here</Link>
+            </p>
+            <p style={{ marginTop: '0.5rem', fontSize: '12px' }}>
+              Demo: manager@example.com / Pass1234
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -6,17 +6,18 @@ import './PremiumManagerPages.css';
 const AllAttendance = () => {
   const [attendance, setAttendance] = useState([]);
   const [filters, setFilters] = useState({ employeeId: '', date: '', status: '' });
+  const [tempFilters, setTempFilters] = useState({ employeeId: '', date: '', status: '' });
   const [page, setPage] = useState(1);
   const [pagination, setPagination] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [exporting, setExporting] = useState(false);
 
-  const fetchAttendance = async () => {
+  const fetchAttendance = async (filtersToUse = filters) => {
     try {
       setLoading(true);
       const response = await axiosInstance.get('/attendance/all', {
-        params: { ...filters, page, limit: 30 }
+        params: { ...filtersToUse, page, limit: 30 }
       });
       setAttendance(response.data.attendance);
       setPagination(response.data.pagination);
@@ -28,17 +29,27 @@ const AllAttendance = () => {
   };
 
   useEffect(() => {
-    fetchAttendance();
+    fetchAttendance(filters);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters, page]);
+  }, [page]);
+
+  useEffect(() => {
+    fetchAttendance(filters);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
-    setFilters(prev => ({ ...prev, [name]: value }));
+    setTempFilters(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleApplyFilters = () => {
+    setFilters(tempFilters);
     setPage(1);
   };
 
   const handleResetFilters = () => {
+    setTempFilters({ employeeId: '', date: '', status: '' });
     setFilters({ employeeId: '', date: '', status: '' });
     setPage(1);
   };
@@ -89,7 +100,7 @@ const AllAttendance = () => {
                 type="text"
                 className="premium-manager-pages-filter-input"
                 name="employeeId"
-                value={filters.employeeId}
+                value={tempFilters.employeeId}
                 onChange={handleFilterChange}
                 placeholder="e.g., EMP001"
               />
@@ -100,7 +111,7 @@ const AllAttendance = () => {
                 type="date"
                 className="premium-manager-pages-filter-input"
                 name="date"
-                value={filters.date}
+                value={tempFilters.date}
                 onChange={handleFilterChange}
               />
             </div>
@@ -109,7 +120,7 @@ const AllAttendance = () => {
               <select 
                 className="premium-manager-pages-filter-input"
                 name="status" 
-                value={filters.status} 
+                value={tempFilters.status} 
                 onChange={handleFilterChange}
               >
                 <option value="">All Statuses</option>
@@ -124,7 +135,7 @@ const AllAttendance = () => {
           <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
             <button 
               style={{ padding: '12px 24px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', border: 'none', borderRadius: '10px', cursor: 'pointer', fontWeight: '600', flex: 1 }}
-              onClick={() => setPage(1)}
+              onClick={handleApplyFilters}
             >
               🔍 Apply Filters
           </button>

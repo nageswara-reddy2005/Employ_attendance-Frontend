@@ -540,7 +540,26 @@
   transform: scale(1.2);
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   z-index: 10;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.attendance-calendar-day.present:hover {
+  border: 3px solid #10b981;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+}
+
+.attendance-calendar-day.absent:hover {
+  border: 3px solid #ef4444;
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+}
+
+.attendance-calendar-day.late:hover {
+  border: 3px solid #f59e0b;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+}
+
+.attendance-calendar-day.halfday:hover {
+  border: 3px solid #3b82f6;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
 }
 
 .attendance-day-number {
