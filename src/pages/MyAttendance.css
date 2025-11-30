@@ -307,8 +307,25 @@
     min-width: auto;
   }
 }
+
+/* Filter Input Styling */
 .attendance-filter-input {
-  background-color: lightblue; /* Change to any color you like */
-  color: black; /* Text color */
-  
+  padding: 10px 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.attendance-filter-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.attendance-filter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }

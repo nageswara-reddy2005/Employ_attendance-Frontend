@@ -62,6 +62,7 @@ const MyAttendance = () => {
     present: attendance.filter(a => a.status === 'present').length,
     absent: attendance.filter(a => a.status === 'absent').length,
     late: attendance.filter(a => a.status === 'late').length,
+    halfDay: attendance.filter(a => a.status === 'half-day').length,
     totalHours: attendance.reduce((sum, a) => sum + (a.totalHours || 0), 0),
     attendanceRate: attendance.length > 0 ? Math.round((attendance.filter(a => a.status === 'present').length / attendance.length) * 100) : 0
   };
@@ -132,6 +133,11 @@ const MyAttendance = () => {
           <div className="attendance-stat-icon">⏰</div>
           <div className="attendance-stat-value">{stats.late}</div>
           <div className="attendance-stat-label">Late Arrivals</div>
+        </div>
+        <div className="attendance-stat-box">
+          <div className="attendance-stat-icon">📋</div>
+          <div className="attendance-stat-value">{stats.halfDay}</div>
+          <div className="attendance-stat-label">Half Days</div>
         </div>
         <div className="attendance-stat-box">
           <div className="attendance-stat-icon">⏱️</div>
